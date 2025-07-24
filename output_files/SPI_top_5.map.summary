@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Jul 21 17:28:02 2025
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : SPI_top_5
+Top-level Entity Name : SPI_top_5
+Family : Cyclone 10 LP
+Total logic elements : 973
+    Total combinational functions : 755
+    Dedicated logic registers : 612
+Total registers : 612
+Total pins : 9
+Total virtual pins : 0
+Total memory bits : 8,192
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

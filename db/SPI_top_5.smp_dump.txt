@@ -1,0 +1,29 @@
+
+State Machine - |SPI_top_5|current_state
+Name current_state.LATCH current_state.SEND_DIGIT current_state.SEND_SEGMENT current_state.IDLE 
+current_state.IDLE 0 0 0 0 
+current_state.SEND_SEGMENT 0 0 1 1 
+current_state.SEND_DIGIT 0 1 0 1 
+current_state.LATCH 1 0 0 1 
+
+State Machine - |SPI_top_5|SPI_xyz_4:SPI_xyz_4_inst|fsm_pstate
+Name fsm_pstate.out_z_do fsm_pstate.out_z_rd fsm_pstate.out_z_addr fsm_pstate.out_y_do fsm_pstate.out_y_rd fsm_pstate.out_y_addr fsm_pstate.out_x_do fsm_pstate.out_x_rd fsm_pstate.out_x_addr fsm_pstate.cfg1_wr fsm_pstate.cfg1_addr 
+fsm_pstate.cfg1_addr 0 0 0 0 0 0 0 0 0 0 0 
+fsm_pstate.cfg1_wr 0 0 0 0 0 0 0 0 0 1 1 
+fsm_pstate.out_x_addr 0 0 0 0 0 0 0 0 1 0 1 
+fsm_pstate.out_x_rd 0 0 0 0 0 0 0 1 0 0 1 
+fsm_pstate.out_x_do 0 0 0 0 0 0 1 0 0 0 1 
+fsm_pstate.out_y_addr 0 0 0 0 0 1 0 0 0 0 1 
+fsm_pstate.out_y_rd 0 0 0 0 1 0 0 0 0 0 1 
+fsm_pstate.out_y_do 0 0 0 1 0 0 0 0 0 0 1 
+fsm_pstate.out_z_addr 0 0 1 0 0 0 0 0 0 0 1 
+fsm_pstate.out_z_rd 0 1 0 0 0 0 0 0 0 0 1 
+fsm_pstate.out_z_do 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |SPI_top_5|SPI_xyz_4:SPI_xyz_4_inst|SPI_MASTER:spi_master_i|present_state
+Name present_state.transmit_end present_state.second_edge present_state.first_edge present_state.idle present_state.transmit_gap 
+present_state.idle 0 0 0 0 0 
+present_state.first_edge 0 0 1 1 0 
+present_state.second_edge 0 1 0 1 0 
+present_state.transmit_end 1 0 0 1 0 
+present_state.transmit_gap 0 0 0 1 1 

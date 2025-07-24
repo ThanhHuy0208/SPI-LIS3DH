@@ -1,0 +1,191 @@
+|SPI_top_5
+clk_i => clk_i.IN1
+rst_n => rst_n.IN1
+SCLK <= SCLK~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RCLK <= RCLK~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DIO <= DIO~reg0.DB_MAX_OUTPUT_PORT_TYPE
+SCLK_2 <= SPI_xyz_4:SPI_xyz_4_inst.SCLK
+CS_N <= SPI_xyz_4:SPI_xyz_4_inst.CS_N
+MOSI <= SPI_xyz_4:SPI_xyz_4_inst.MOSI
+MISO => MISO.IN1
+
+
+|SPI_top_5|PLL:pll
+inclk0 => sub_wire1[0].IN1
+c0 <= altpll:altpll_component.clk
+
+
+|SPI_top_5|PLL:pll|altpll:altpll_component
+inclk[0] => PLL_altpll:auto_generated.inclk[0]
+inclk[1] => PLL_altpll:auto_generated.inclk[1]
+fbin => ~NO_FANOUT~
+pllena => ~NO_FANOUT~
+clkswitch => ~NO_FANOUT~
+areset => ~NO_FANOUT~
+pfdena => ~NO_FANOUT~
+clkena[0] => ~NO_FANOUT~
+clkena[1] => ~NO_FANOUT~
+clkena[2] => ~NO_FANOUT~
+clkena[3] => ~NO_FANOUT~
+clkena[4] => ~NO_FANOUT~
+clkena[5] => ~NO_FANOUT~
+extclkena[0] => ~NO_FANOUT~
+extclkena[1] => ~NO_FANOUT~
+extclkena[2] => ~NO_FANOUT~
+extclkena[3] => ~NO_FANOUT~
+scanclk => ~NO_FANOUT~
+scanclkena => ~NO_FANOUT~
+scanaclr => ~NO_FANOUT~
+scanread => ~NO_FANOUT~
+scanwrite => ~NO_FANOUT~
+scandata => ~NO_FANOUT~
+phasecounterselect[0] => ~NO_FANOUT~
+phasecounterselect[1] => ~NO_FANOUT~
+phasecounterselect[2] => ~NO_FANOUT~
+phasecounterselect[3] => ~NO_FANOUT~
+phaseupdown => ~NO_FANOUT~
+phasestep => ~NO_FANOUT~
+configupdate => ~NO_FANOUT~
+fbmimicbidir <> <GND>
+clk[0] <= clk[0].DB_MAX_OUTPUT_PORT_TYPE
+clk[1] <= clk[1].DB_MAX_OUTPUT_PORT_TYPE
+clk[2] <= clk[2].DB_MAX_OUTPUT_PORT_TYPE
+clk[3] <= clk[3].DB_MAX_OUTPUT_PORT_TYPE
+clk[4] <= clk[4].DB_MAX_OUTPUT_PORT_TYPE
+extclk[0] <= <GND>
+extclk[1] <= <GND>
+extclk[2] <= <GND>
+extclk[3] <= <GND>
+clkbad[0] <= <GND>
+clkbad[1] <= <GND>
+enable1 <= <GND>
+enable0 <= <GND>
+activeclock <= <GND>
+clkloss <= <GND>
+locked <= <GND>
+scandataout <= <GND>
+scandone <= <GND>
+sclkout0 <= <GND>
+sclkout1 <= <GND>
+phasedone <= <GND>
+vcooverrange <= <GND>
+vcounderrange <= <GND>
+fbout <= <GND>
+fref <= <GND>
+icdrclk <= <GND>
+
+
+|SPI_top_5|PLL:pll|altpll:altpll_component|PLL_altpll:auto_generated
+clk[0] <= pll1.CLK
+clk[1] <= pll1.CLK1
+clk[2] <= pll1.CLK2
+clk[3] <= pll1.CLK3
+clk[4] <= pll1.CLK4
+inclk[0] => pll1.CLK
+inclk[1] => pll1.CLK1
+
+
+|SPI_top_5|SPI_xyz_4:SPI_xyz_4_inst
+CLK_12M => CLK_12M.IN2
+RST_BTN_N => rst_btn.IN1
+SCLK <= SPI_MASTER:spi_master_i.SCLK
+CS_N <= SPI_MASTER:spi_master_i.CS_N
+MOSI <= SPI_MASTER:spi_master_i.MOSI
+MISO => MISO.IN1
+USER_LEDS[0] <= USER_LEDS[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[1] <= USER_LEDS[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[2] <= USER_LEDS[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[3] <= USER_LEDS[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[4] <= USER_LEDS[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[5] <= USER_LEDS[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[6] <= USER_LEDS[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS[7] <= USER_LEDS[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[0] <= USER_LEDS_2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[1] <= USER_LEDS_2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[2] <= USER_LEDS_2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[3] <= USER_LEDS_2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[4] <= USER_LEDS_2[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[5] <= USER_LEDS_2[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[6] <= USER_LEDS_2[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_2[7] <= USER_LEDS_2[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[0] <= USER_LEDS_3[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[1] <= USER_LEDS_3[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[2] <= USER_LEDS_3[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[3] <= USER_LEDS_3[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[4] <= USER_LEDS_3[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[5] <= USER_LEDS_3[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[6] <= USER_LEDS_3[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+USER_LEDS_3[7] <= USER_LEDS_3[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+test <= sensor_wr_z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SPI_top_5|SPI_xyz_4:SPI_xyz_4_inst|RST_SYNC:rst_sync_i
+CLK => reset_reg.CLK
+CLK => meta_reg.CLK
+ASYNC_RST => reset_reg.PRESET
+ASYNC_RST => meta_reg.PRESET
+SYNCED_RST <= reset_reg.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SPI_top_5|SPI_xyz_4:SPI_xyz_4_inst|SPI_MASTER:spi_master_i
+CLK => DOUT_VLD~reg0.CLK
+CLK => shreg[0].CLK
+CLK => shreg[1].CLK
+CLK => shreg[2].CLK
+CLK => shreg[3].CLK
+CLK => shreg[4].CLK
+CLK => shreg[5].CLK
+CLK => shreg[6].CLK
+CLK => shreg[7].CLK
+CLK => miso_reg.CLK
+CLK => din_last_reg_n.CLK
+CLK => bit_cnt[0].CLK
+CLK => bit_cnt[1].CLK
+CLK => bit_cnt[2].CLK
+CLK => spi_clk.CLK
+CLK => sys_clk_cnt[0].CLK
+CLK => sys_clk_cnt[1].CLK
+CLK => sys_clk_cnt[2].CLK
+CLK => present_state~1.DATAIN
+RST => always0.IN1
+RST => always1.IN1
+RST => din_last_reg_n.OUTPUTSELECT
+RST => DOUT_VLD.OUTPUTSELECT
+RST => present_state.OUTPUTSELECT
+RST => present_state.OUTPUTSELECT
+RST => present_state.OUTPUTSELECT
+RST => present_state.OUTPUTSELECT
+RST => present_state.OUTPUTSELECT
+SCLK <= spi_clk.DB_MAX_OUTPUT_PORT_TYPE
+CS_N[0] <= chip_select_n.DB_MAX_OUTPUT_PORT_TYPE
+MOSI <= shreg[7].DB_MAX_OUTPUT_PORT_TYPE
+MISO => miso_reg.DATAIN
+DIN[0] => shreg.DATAB
+DIN[1] => shreg.DATAB
+DIN[2] => shreg.DATAB
+DIN[3] => shreg.DATAB
+DIN[4] => shreg.DATAB
+DIN[5] => shreg.DATAB
+DIN[6] => shreg.DATAB
+DIN[7] => shreg.DATAB
+DIN_ADDR[0] => ~NO_FANOUT~
+DIN_ADDR[-1] => ~NO_FANOUT~
+DIN_LAST => din_last_reg_n.DATAB
+DIN_VLD => load_data.IN0
+DIN_VLD => next_state.OUTPUTSELECT
+DIN_VLD => next_state.OUTPUTSELECT
+DIN_VLD => next_state.OUTPUTSELECT
+DIN_VLD => next_state.OUTPUTSELECT
+DIN_VLD => next_state.OUTPUTSELECT
+DIN_RDY <= DIN_RDY.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[0] <= shreg[0].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= shreg[1].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= shreg[2].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= shreg[3].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[4] <= shreg[4].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[5] <= shreg[5].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[6] <= shreg[6].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[7] <= shreg[7].DB_MAX_OUTPUT_PORT_TYPE
+DOUT_VLD <= DOUT_VLD~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
