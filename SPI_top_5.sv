@@ -885,14 +885,14 @@ module SPI_MASTER #(
 	.inclk0(CLK),
 	.c0(spi_clk_temp) );
 	
-/*// Synchronizer for SPI_CLK_1M (avoid metastability crossing domains)
+// Synchronizer for SPI_CLK_1M (avoid metastability crossing domains)
     reg sclk_sync_0, sclk_sync_1, sclk_sync_2;
     always @(posedge CLK) begin
         sclk_sync_0 <= spi_clk_temp;
         sclk_sync_1 <= sclk_sync_0;
         sclk_sync_2 <= sclk_sync_1;
     end
-	 */
+	 
   
     always @(posedge CLK) begin
         if (RST || spi_clk_rst) begin
