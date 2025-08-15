@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at SPI_top_5.sv(454): always construct contains both blocking and non-blocking assignments File: D:/Data Bi/test/SPI_top_5/SPI_top_5.sv Line: 454
+Warning (10268): Verilog HDL information at SPI_top_5.sv(897): always construct contains both blocking and non-blocking assignments File: D:/Data Bi/test/SPI_top_5/SPI_top_5.sv Line: 897

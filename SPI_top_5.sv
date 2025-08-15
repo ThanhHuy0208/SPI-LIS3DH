@@ -1,5 +1,5 @@
 module SPI_top_5 (
-    input  logic clk_i,            // Clock 12MHz
+    input  logic clk,            // Clock 12MHz
     input  logic rst_n,          // Asynchronous active-low reset
     output logic SCLK,           // Serial Clock
     output logic RCLK,           // Register Clock (Latch)
@@ -10,10 +10,7 @@ module SPI_top_5 (
     output       MOSI,
     input        MISO
 );
-reg clk;
-PLL pll(
-	.inclk0(clk_i),
-	.c0(clk) );
+
     // USER LEDS
     logic [7:0] USER_LEDS;
     logic [7:0] USER_LEDS_2;
@@ -73,7 +70,7 @@ logic fast_clk = 0;
 logic [1:0] led_index = 0;
 
 // Xử lý dữ liệu đầu vào cho 3 LED
-always_ff @(posedge clk_i or negedge rst_n) begin
+always_ff @(posedge clk or negedge rst_n) begin
   if (!rst_n) begin
     display_value[0] <= 0;
     display_value[1] <= 0;
@@ -87,7 +84,7 @@ always_ff @(posedge clk_i or negedge rst_n) begin
 end
 
 // Clock divider for LED scanning (~6kHz)
-always_ff @(posedge clk_i or negedge rst_n) begin
+always_ff @(posedge clk or negedge rst_n) begin
   if (!rst_n) begin
     fast_counter <= 0;
     fast_clk <= 0;
@@ -360,9 +357,9 @@ module SPI_xyz_4 (
     output       MOSI,
     input        MISO,
     // USER LEDS
-    output [7:0] USER_LEDS,
-	 output [7:0] USER_LEDS_2,
-	 output [7:0] USER_LEDS_3,
+    output logic [7:0] USER_LEDS,
+	 output logic [7:0] USER_LEDS_2,
+	 output logic [7:0] USER_LEDS_3,
 	 output test
 );
 
@@ -405,9 +402,9 @@ module SPI_xyz_4 (
     reg [7:0] x_data_unsigned;
 	 reg [7:0] y_data_unsigned;
 	 reg [7:0] z_data_unsigned;
-    wire signed [7:0] x_data;
-	 wire signed [7:0] y_data;
-	 wire signed [7:0] z_data;
+    reg signed [7:0] x_data;
+	 reg signed [7:0] y_data;
+	 reg signed [7:0] z_data;
 
     assign rst_btn = ~RST_BTN_N;
 
@@ -548,14 +545,14 @@ module SPI_xyz_4 (
                if (spi_dout_vld) begin
                sensor_wr_z = 1'b1;
                fsm_nstate = out_x_addr;
-               end else if (timeout_cnt > 100) begin
-               fsm_nstate = out_x_addr;
+               //end else if (timeout_cnt > 100) begin
+               //fsm_nstate = out_x_addr;
               end
             end
         endcase
     end
 	 
-	 // Time out
+/*	 // Time out
 	 always_ff @(posedge CLK_12M or posedge reset) begin
     if (reset) begin
         timeout_cnt <= 8'd0;
@@ -566,7 +563,7 @@ module SPI_xyz_4 (
     end else begin
         timeout_cnt <= 8'd0;
     end
-end
+end */
 
     // Sensor data register
     always @(posedge CLK_12M) begin
@@ -804,7 +801,7 @@ endmodule
 // SPI Master Module
 module SPI_MASTER #(
     parameter CLK_FREQ    = 12_000_000,
-    parameter SCLK_FREQ   = 1_200_000,
+    parameter SCLK_FREQ   = 1_000_000,
     parameter WORD_SIZE   = 8,
     parameter SLAVE_COUNT = 1
 )(
@@ -843,6 +840,7 @@ module SPI_MASTER #(
     reg [WIDTH_CLK_CNT-1:0] sys_clk_cnt;
     wire sys_clk_cnt_max;
     reg spi_clk;
+	 wire spi_clk_temp;
     wire spi_clk_rst;
     reg din_last_reg_n;
     wire first_edge_en;
@@ -872,7 +870,7 @@ module SPI_MASTER #(
         end
     end
 
-    // SPI clock generator
+ /*   // SPI clock generator
     always @(posedge CLK) begin
         if (RST || spi_clk_rst) begin
             spi_clk <= 0;
@@ -880,9 +878,30 @@ module SPI_MASTER #(
             spi_clk <= ~spi_clk;
         end
     end
+*/
 
-    assign SCLK = spi_clk;
 
+  PLL pll(
+	.inclk0(CLK),
+	.c0(spi_clk_temp) );
+	
+/*// Synchronizer for SPI_CLK_1M (avoid metastability crossing domains)
+    reg sclk_sync_0, sclk_sync_1, sclk_sync_2;
+    always @(posedge CLK) begin
+        sclk_sync_0 <= spi_clk_temp;
+        sclk_sync_1 <= sclk_sync_0;
+        sclk_sync_2 <= sclk_sync_1;
+    end
+	 */
+  
+    always @(posedge CLK) begin
+        if (RST || spi_clk_rst) begin
+            spi_clk <= 0;
+				end else begin
+				spi_clk = sclk_sync_2; end
+				end
+ assign SCLK = spi_clk;
+	 
     // Bit counter
     always @(posedge CLK) begin
         if (RST || spi_clk_rst) begin
@@ -1044,3 +1063,8 @@ module SPI_MASTER #(
     end
 
 endmodule
+
+
+
+
+   

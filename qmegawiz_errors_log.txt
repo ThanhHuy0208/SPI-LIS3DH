@@ -1,0 +1,13 @@
+
+
+D:/Data Bi/test/SPI_top_5/PLL.vhd
+
+Aug 12 04PM:50:31>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+PLL.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?

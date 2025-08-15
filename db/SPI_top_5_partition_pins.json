@@ -28,11 +28,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk_i",
+					"name" : "rst_n",
 					"strict" : false
 				},
 				{
-					"name" : "rst_n",
+					"name" : "clk",
 					"strict" : false
 				},
 				{

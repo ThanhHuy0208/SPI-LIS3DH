@@ -1,16 +1,16 @@
-Fitter Status : Successful - Mon Jul 21 17:28:10 2025
+Fitter Status : Successful - Wed Aug 13 13:33:16 2025
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : SPI_top_5
 Top-level Entity Name : SPI_top_5
 Family : Cyclone 10 LP
 Device : 10CL025YU256C8G
 Timing Models : Final
-Total logic elements : 929 / 24,624 ( 4 % )
-    Total combinational functions : 758 / 24,624 ( 3 % )
-    Dedicated logic registers : 612 / 24,624 ( 2 % )
-Total registers : 612
+Total logic elements : 1,886 / 24,624 ( 8 % )
+    Total combinational functions : 1,013 / 24,624 ( 4 % )
+    Dedicated logic registers : 1,524 / 24,624 ( 6 % )
+Total registers : 1524
 Total pins : 9 / 151 ( 6 % )
 Total virtual pins : 0
-Total memory bits : 8,192 / 608,256 ( 1 % )
+Total memory bits : 319,488 / 608,256 ( 53 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
 Total PLLs : 1 / 4 ( 25 % )
